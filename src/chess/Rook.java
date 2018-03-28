@@ -20,10 +20,7 @@ public class Rook extends ChessPiece{
 			for(int i = 1; i < 8; i++) {
 				//checks for right movements
 				if(move.fromColumn == move.toColumn + 1) {
-					//check if within bounds
-					if(move.toColumn >= 0 && move.toColumn < 8) {
-						valid = true;
-					}
+					valid = true;
 				}
 				//checks for left movements
 				if(move.fromColumn == move.toColumn - 1) {

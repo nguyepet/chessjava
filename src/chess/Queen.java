@@ -1,13 +1,13 @@
 package chess;
 
-public class Knight extends ChessPiece {
+public class Queen extends ChessPiece {
 	
-	public Knight(Player player) {
+	public Queen(Player player) {
 		super(player);
 	}
 	
 	public String type() {
-		return "Knight";
+		return "Queen";
 	}
 	
 	public boolean isValidMove(Move move, IChessPiece[][] board) {
