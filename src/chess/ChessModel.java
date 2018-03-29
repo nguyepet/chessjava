@@ -3,6 +3,8 @@ package chess;
 
 /**********************************************************************************
 * Class responsible for storing the chess board and implementing the game logic.
+* @author Peter Nguyen
+* @version Winter 2018
 ***********************************************************************************/
 public class ChessModel implements IChessModel {
 	
@@ -20,6 +22,8 @@ public class ChessModel implements IChessModel {
 		
 		//starting player is white
 		player = Player.WHITE;
+		
+		board = new IChessPiece[8][8];
 		
 		//board is filled with chess pieces
 		board[0][0] = new Rook(Player.BLACK);
