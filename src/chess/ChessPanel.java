@@ -127,8 +127,51 @@ public class ChessPanel extends JPanel{
 		 ********************************************************************/
 		private class ButtonListener implements ActionListener{
 			
+			int cnt = 1; //count 1 means starting position, cnt 2 means targeting position
+			
+			int strRow;
+			int strCol;
+			int tarRow;
+			int tarCol;
+			
+			
 			public void actionPerformed(ActionEvent event) {
-				JOptionPane.showMessageDialog(null, "Hi" +  event.getSource() );
+				
+				if(cnt == 1) {
+					for(int i = 0; i < 8; i++) {
+						for(int j = 0; j < 8; j ++ ) {
+							if(model.pieceAt(i,j) != null && board[i][j] == event.getSource()) {
+							    strRow = i;
+								strCol = j;
+								cnt = 2;
+								return;				
+							}						
+						}
+					}
+				}
+				 
+				if(cnt == 2){
+					for(int i = 0; i < 8; i++) {
+						for(int j = 0; j < 8; j ++ ) {
+							if(board[i][j] == event.getSource()) {
+							    tarRow = i;
+								tarCol = j;
+								cnt = 1;
+								
+								Move mov = new Move(strRow, strCol, tarRow, tarCol);
+								if(model.isValidMove(mov)) {
+									model.move(mov);
+									displayBoard();
+								}
+								else {
+									JOptionPane.showMessageDialog(null, "Invaild Move try again");
+								}
+							}						
+						}
+					}
+				}
+				
+				
 			}
 		}
 		

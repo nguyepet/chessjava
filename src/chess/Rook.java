@@ -19,12 +19,16 @@ public class Rook extends ChessPiece{
 		if(move.toRow == move.fromRow) {
 			for(int i = 1; i < 8; i++) {
 				//checks for right movements
-				if(move.fromColumn == move.toColumn + 1) {
-					valid = true;
+				if(move.fromColumn == move.toColumn + i) {
+					if(isClearPath(move, board)) {
+						valid = true;
+					}
 				}
 				//checks for left movements
-				if(move.fromColumn == move.toColumn - 1) {
-					valid = true;
+				if(move.fromColumn == move.toColumn - i) {
+					if(isClearPath(move, board)) {
+						valid = true;
+					}
 				}
 			}
 		}
@@ -32,12 +36,16 @@ public class Rook extends ChessPiece{
 		if(move.toColumn == move.fromColumn) {
 			for(int i = 1; i < 8; i++) {
 				//checks for up movements
-				if(move.fromRow == move.toRow + 1) {
-					valid = true;
+				if(move.fromRow == move.toRow + i) {
+					if(isClearPath(move, board)) {
+						valid = true;
+					}
 				}
 				//checks for down movements
-				if(move.fromRow == move.toRow - 1) {
-					valid = true;
+				if(move.fromRow == move.toRow - i) {
+					if(isClearPath(move, board)) {
+						valid = true;
+					}
 				}
 			}
 		}
@@ -45,7 +53,4 @@ public class Rook extends ChessPiece{
 		
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("elo");
-	}
 }

@@ -109,17 +109,9 @@ public class ChessModel implements IChessModel {
 	 * Returns whether the piece at location is allowed to be moved to target location
 	 ***********************************************************************************/
 	public boolean isValidMove(Move move) {
-		//check if within bounds
-		if(move.toRow >= 0 && move.toRow < 8 || move.toColumn >= 0 && move.toColumn < 8) {
-			throw new IndexOutOfBoundsException("Invalid locations on board");
-		}
 		
-		if(move.fromRow >= 0 && move.fromRow < 8 || move.fromColumn >= 0 && move.fromColumn < 8) {
-			throw new IndexOutOfBoundsException("Invalid locations on board");
-		}
-		
-		//GRABS PIECE TYPE AND CHECK VALID MOVE?
 		return (pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board));
+
 	}
 	
 	
@@ -127,14 +119,6 @@ public class ChessModel implements IChessModel {
 	 * Moves the piece from starting position to target position
 	 *****************************************************************************/
 	public void move(Move move) {
-		//check if within bounds
-		if(move.toRow >= 0 && move.toRow < 8 || move.toColumn >= 0 && move.toColumn < 8) {
-			throw new IndexOutOfBoundsException("Invalid locations on board");
-		}
-				
-		if(move.fromRow >= 0 && move.fromRow < 8 || move.fromColumn >= 0 && move.fromColumn < 8) {
-			throw new IndexOutOfBoundsException("Invalid locations on board");
-		}
 		
 		//copies piece at starting location
 		IChessPiece movingPiece = pieceAt(move.fromRow, move.fromColumn);
